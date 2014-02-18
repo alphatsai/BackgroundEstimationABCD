@@ -8,8 +8,8 @@ from inputFiles_cfi import *
 #from inputFiles_0_cfi import * 
 
 FileNames = [
-#	'file:/raid1/w/jtsai/bpTobH/skim_Nominal/TTJets.root'
-	'file:/raid1/w/jtsai/bpTobH/skim_Nominal/QCD_Pt-1000to1400.root'
+	#'file:/raid1/w/jtsai/bpTobH/skim_Nominal/SAMPLENAME.root'
+	'file:/raid1/w/jtsai/bpTobH/NoSF/skim/SAMPLENAME.root'
 ]
 #FileNames = [
 ##'file:BprimeTobH_v1_10_1_HIn.root'
@@ -204,19 +204,25 @@ process.BprimebH = cms.EDAnalyzer('BackgroundEstimationABCD',
     BJetCSV           	= cms.double(options.bJetCSV),
 
     JetSelParams        = defaultJetSelectionParameters.clone(
+    		IsJetIDLoose        = cms.bool(False), 
+   		IsJetIDTight        = cms.bool(True), 
 		jetPtMin = cms.double(50)
 	),
     BJetSelParams       = defaultBJetSelectionParameters.clone(),
 #    FatJetSelParams     = defaultFatJetSelectionParameters.clone(
 #	), 
     HiggsJetSelParams   = defaultHiggsJetSelectionParameters.clone(
-    		fatJetMassMin       = cms.double(300.),
-    		fatJetMassMax       = cms.double(10000),
+    		fatJetPtMin         = cms.double(300.),
+		fatJetPrunedMassMin = cms.double(75.),
+    		fatJetMassMin       = cms.double(100.),
+    		fatJetMassMax       = cms.double(150.),
     		fatJetTau2ByTau1Max = cms.double(0.5),
     		dRSubjetsMin        = cms.double(0.4), 
 		dRSubjetsMax        = cms.double(0.8), 
     		subjet1CSVDiscMin   = cms.double(0.244),
     		subjet2CSVDiscMin   = cms.double(0.244),
+    		subjet1CSVDiscMax   = cms.double(1.1),
+    		subjet2CSVDiscMax   = cms.double(1.1),
 	), 
     HTSelParams         = defaultHTSelectionParameters.clone(),
     EvtSelParams        = defaultEventSelectionParameters.clone(),
