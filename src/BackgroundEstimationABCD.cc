@@ -306,7 +306,7 @@ void BackgroundEstimationABCD::analyze(const edm::Event& iEvent, const edm::Even
 	
 	//// Roop events ==================================================================================================	
 	for(int entry=0; entry<maxEvents_; entry++){
-		if( (entry%reportEvery_) == 0) edm::LogInfo("Event") << entry << " of " << maxEvents_;
+		//if( (entry%reportEvery_) == 0) edm::LogInfo("Event") << entry << " of " << maxEvents_;
 		chain_->GetEntry(entry);
 		Evt_num->Fill(0);
 
@@ -391,6 +391,16 @@ void BackgroundEstimationABCD::analyze(const edm::Event& iEvent, const edm::Even
 			Higgs_mass->Fill(FatJetInfo.Mass[i]);
 			Higgs_Prunedmass->Fill(FatJetInfo.MassPruned[i]);
 
+/*				cout<<"[Alpha] CA8 Evt: "<<entry<<" ==================="<<endl;
+				cout<<"[Alpha] pt "<<FatJetInfo.Pt[i]<<endl; 
+				cout<<"[Alpha] mass "<<FatJetInfo.Mass[i]<<endl; 
+				cout<<"[Alpha] Pruned mass "<<FatJetInfo.MassPruned[i]<<endl; 
+				cout<<"[Alpha] CSV "<<FatJetInfo.CombinedSVBJetTags[i]<<endl; 
+				cout<<"[Alpha] tau2/tau1 "<<FatJetInfo.tau2[i]/FatJetInfo.tau1[i]<<endl; 
+				cout<<"[Alpha] dyhi "<<subjet_dyphi<<endl; 
+				cout<<"[Alpha] CSV1 "<<SubJetInfo.CombinedSVBJetTags[iSub1]<<endl; 
+				cout<<"[Alpha] CSV2 "<<SubJetInfo.CombinedSVBJetTags[iSub2]<<endl; */
+
 		}
 		Higgs_num->Fill(higgsJets.size());
 
@@ -439,6 +449,7 @@ void BackgroundEstimationABCD::analyze(const edm::Event& iEvent, const edm::Even
 		
 		if( HTAK5 < 900 ) continue;	
 		cutFlow->Fill(3);
+			
 		//// Store new tree, new branch with Jet correction  ====================================================================================================
 	} //// entry loop 
 
