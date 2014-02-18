@@ -1,0 +1,206 @@
+ Lumi/Pileup Reweighting: Computed Weights per In-Time Nint 
+   0 0.267977
+   1 0.499408
+   2 7.55599
+   3 0.336594
+   4 0.282072
+   5 0.683136
+   6 0.513444
+   7 0.506665
+   8 0.693304
+   9 1.01263
+   10 1.41929
+   11 1.74024
+   12 1.74756
+   13 1.54593
+   14 1.31296
+   15 1.14072
+   16 1.05009
+   17 1.02089
+   18 1.03818
+   19 1.08268
+   20 1.12445
+   21 1.15139
+   22 1.16775
+   23 1.17285
+   24 1.15801
+   25 1.11612
+   26 1.04698
+   27 0.956085
+   28 0.849848
+   29 0.735062
+   30 0.618606
+   31 0.50659
+   32 0.403163
+   33 0.311461
+   34 0.233419
+   35 0.170001
+   36 0.121696
+   37 0.0875301
+   38 0.0653555
+   39 0.0526604
+   40 0.0469933
+   41 0.0463873
+   42 0.0494824
+   43 0.0554635
+   44 0.0640599
+   45 0.0752252
+   46 0.0891955
+   47 0.106463
+   48 0.127646
+   49 0.153505
+Begin processing the 1st record. Run 1, Event 1, LumiSection 1 at 31-Jan-2014 17:49:44.227 CET
+Begin processing the 1st record. Run 1, Event 1, LumiSection 1 at 31-Jan-2014 17:49:44.227 CET
+%MSG-i StartingAnalysisLoop:  BackgroundEstimationSkim:BprimebH  31-Jan-2014 17:49:44 CET Run: 1 Event: 1
+Starting analysis loop
+
+%MSG
+%MSG-i Event:  BackgroundEstimationSkim:BprimebH 31-Jan-2014 17:49:44 CET  Run: 1 Event: 1
+0 of 100
+%MSG
+
+
+TrigReport ---------- Event  Summary ------------
+TrigReport ---------- Event  Summary ------------
+TrigReport Events total = 1 passed = 1 failed = 0
+TrigReport Events total = 1 passed = 1 failed = 0
+
+
+TrigReport ---------- Path   Summary ------------
+TrigReport ---------- Path   Summary ------------
+TrigReport  Trig Bit#        Run     Passed     Failed      Error Name
+TrigReport  Trig Bit#        Run     Passed     Failed      Error Name
+TrigReport     1    0          1          1          0          0 p
+TrigReport     1    0          1          1          0          0 p
+
+
+TrigReport -------End-Path   Summary ------------
+TrigReport -------End-Path   Summary ------------
+TrigReport  Trig Bit#        Run     Passed     Failed      Error Name
+TrigReport  Trig Bit#        Run     Passed     Failed      Error Name
+
+
+TrigReport ---------- Modules in Path: p ------------
+TrigReport ---------- Modules in Path: p ------------
+TrigReport  Trig Bit#    Visited     Passed     Failed      Error Name
+TrigReport  Trig Bit#    Visited     Passed     Failed      Error Name
+TrigReport     1    0          1          1          0          0 BprimebH
+TrigReport     1    0          1          1          0          0 BprimebH
+
+
+TrigReport ---------- Module Summary ------------
+TrigReport ---------- Module Summary ------------
+TrigReport    Visited        Run     Passed     Failed      Error Name
+TrigReport    Visited        Run     Passed     Failed      Error Name
+TrigReport          1          1          1          0          0 BprimebH
+TrigReport          1          1          1          0          0 BprimebH
+TrigReport          1          1          1          0          0 TriggerResults
+TrigReport          1          1          1          0          0 TriggerResults
+
+
+TimeReport ---------- Event  Summary ---[sec]----
+TimeReport ---------- Event  Summary ---[sec]----
+TimeReport CPU/event = 1.326798 Real/event = 1.338671
+TimeReport CPU/event = 1.326798 Real/event = 1.338671
+
+
+TimeReport ---------- Path   Summary ---[sec]----
+TimeReport ---------- Path   Summary ---[sec]----
+TimeReport             per event          per path-run 
+TimeReport             per event          per path-run 
+TimeReport        CPU       Real        CPU       Real Name
+TimeReport        CPU       Real        CPU       Real Name
+TimeReport   1.325798   1.338184   1.325798   1.338184 p
+TimeReport   1.325798   1.338184   1.325798   1.338184 p
+TimeReport        CPU       Real        CPU       Real Name
+TimeReport        CPU       Real        CPU       Real Name
+TimeReport             per event          per path-run 
+TimeReport             per event          per path-run 
+
+
+TimeReport -------End-Path   Summary ---[sec]----
+TimeReport -------End-Path   Summary ---[sec]----
+TimeReport             per event       per endpath-run 
+TimeReport             per event       per endpath-run 
+TimeReport        CPU       Real        CPU       Real Name
+TimeReport        CPU       Real        CPU       Real Name
+TimeReport        CPU       Real        CPU       Real Name
+TimeReport        CPU       Real        CPU       Real Name
+TimeReport             per event       per endpath-run 
+TimeReport             per event       per endpath-run 
+
+
+TimeReport ---------- Modules in Path: p ---[sec]----
+TimeReport ---------- Modules in Path: p ---[sec]----
+TimeReport             per event      per module-visit 
+TimeReport             per event      per module-visit 
+TimeReport        CPU       Real        CPU       Real Name
+TimeReport        CPU       Real        CPU       Real Name
+TimeReport   1.325798   1.338177   1.325798   1.338177 BprimebH
+TimeReport   1.325798   1.338177   1.325798   1.338177 BprimebH
+TimeReport        CPU       Real        CPU       Real Name
+TimeReport        CPU       Real        CPU       Real Name
+TimeReport             per event      per module-visit 
+TimeReport             per event      per module-visit 
+TimeReport        CPU       Real        CPU       Real Name
+TimeReport        CPU       Real        CPU       Real Name
+TimeReport             per event      per module-visit 
+TimeReport             per event      per module-visit 
+
+
+TimeReport ---------- Module Summary ---[sec]----
+TimeReport ---------- Module Summary ---[sec]----
+TimeReport             per event        per module-run      per module-visit 
+TimeReport             per event        per module-run      per module-visit 
+TimeReport        CPU       Real        CPU       Real        CPU       Real Name
+TimeReport        CPU       Real        CPU       Real        CPU       Real Name
+TimeReport   1.325798   1.338177   1.325798   1.338177   1.325798   1.338177 BprimebH
+TimeReport   1.325798   1.338177   1.325798   1.338177   1.325798   1.338177 BprimebH
+TimeReport   0.001000   0.000477   0.001000   0.000477   0.001000   0.000477 TriggerResults
+TimeReport   0.001000   0.000477   0.001000   0.000477   0.001000   0.000477 TriggerResults
+TimeReport        CPU       Real        CPU       Real        CPU       Real Name
+TimeReport        CPU       Real        CPU       Real        CPU       Real Name
+TimeReport             per event        per module-run      per module-visit 
+TimeReport             per event        per module-run      per module-visit 
+
+
+T---Report end!
+T---Report end!
+
+
+MemoryReport> Peak virtual size 329.273 Mbytes
+ Key events increasing vsize: 
+[0] run: 0 lumi: 0 event: 0  vsize = 0 deltaVsize = 0 rss = 0 delta = 0
+[0] run: 0 lumi: 0 event: 0  vsize = 0 deltaVsize = 0 rss = 0 delta = 0
+[1] run: 1 lumi: 1 event: 1  vsize = 329.273 deltaVsize = 0 rss = 203.949 delta = 0
+[0] run: 0 lumi: 0 event: 0  vsize = 0 deltaVsize = 0 rss = 0 delta = 0
+[0] run: 0 lumi: 0 event: 0  vsize = 0 deltaVsize = 0 rss = 0 delta = 0
+[0] run: 0 lumi: 0 event: 0  vsize = 0 deltaVsize = 0 rss = 0 delta = 0
+[0] run: 0 lumi: 0 event: 0  vsize = 0 deltaVsize = 0 rss = 0 delta = 0
+[1] run: 1 lumi: 1 event: 1  vsize = 329.273 deltaVsize = 0 rss = 203.949 delta = 0
+MemoryReport> Peak virtual size 329.273 Mbytes
+ Key events increasing vsize: 
+[0] run: 0 lumi: 0 event: 0  vsize = 0 deltaVsize = 0 rss = 0 delta = 0
+[0] run: 0 lumi: 0 event: 0  vsize = 0 deltaVsize = 0 rss = 0 delta = 0
+[1] run: 1 lumi: 1 event: 1  vsize = 329.273 deltaVsize = 0 rss = 203.949 delta = 0
+[0] run: 0 lumi: 0 event: 0  vsize = 0 deltaVsize = 0 rss = 0 delta = 0
+[0] run: 0 lumi: 0 event: 0  vsize = 0 deltaVsize = 0 rss = 0 delta = 0
+[0] run: 0 lumi: 0 event: 0  vsize = 0 deltaVsize = 0 rss = 0 delta = 0
+[0] run: 0 lumi: 0 event: 0  vsize = 0 deltaVsize = 0 rss = 0 delta = 0
+[1] run: 1 lumi: 1 event: 1  vsize = 329.273 deltaVsize = 0 rss = 203.949 delta = 0
+
+=============================================
+
+MessageLogger Summary
+
+ type     category        sev    module        subroutine        count    total
+ ---- -------------------- -- ---------------- ----------------  -----    -----
+    1 MemoryReport         -s AfterModEndJob                         1        1
+
+ type    category    Examples: run/evt        run/evt          run/evt
+ ---- -------------------- ---------------- ---------------- ----------------
+    1 MemoryReport         PostEndRun                        
+
+Severity    # Occurrences   Total Occurrences
+--------    -------------   -----------------
+System                  1                   1
