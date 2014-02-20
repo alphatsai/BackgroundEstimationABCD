@@ -134,7 +134,6 @@ if options.SFbShift != 0.0 and options.SFlShift != 0.0:
   print "Warning: must be varied independently."
 
 options.setDefault('maxEvents', -1000) 
-#options.setDefault('maxEvents', 1000) 
 
 options.parseArguments()
 
@@ -147,7 +146,7 @@ process.MessageLogger.cout = cms.untracked.PSet(
 process.MessageLogger.cerr.FwkReport.reportEvery = cms.untracked.int32(1)
 
 process.maxEvents = cms.untracked.PSet( input = cms.untracked.int32(1) ) # Leave it this way. 
-
+#process.options   = cms.untracked.PSet( wantSummary = cms.untracked.bool(True) ) # show cpu time
 process.source = cms.Source("EmptySource")
 
 process.TFileService = cms.Service("TFileService",
@@ -178,20 +177,25 @@ process.BprimebH = cms.EDAnalyzer('BackgroundEstimationABCD',
     BJetCSV           	= cms.double(options.bJetCSV),
 
     JetSelParams        = defaultJetSelectionParameters.clone(
-		jetPtMin = cms.double(10)
+    		IsJetIDLoose        = cms.bool(False), 
+   		IsJetIDTight        = cms.bool(True), 
+		jetPtMin = cms.double(50)
 	),
     BJetSelParams       = defaultBJetSelectionParameters.clone(),
-#    FatJetSelParams     = defaultFatJetSelectionParameters.clone(), 
+#    FatJetSelParams     = defaultFatJetSelectionParameters.clone(
+#	), 
     HiggsJetSelParams   = defaultHiggsJetSelectionParameters.clone(
-    		fatJetPrunedMassMin = cms.double(-1),
-		fatJetPrunedMassMax = cms.double(100000),
-    		fatJetMassMin       = cms.double(0.),
-    		fatJetMassMax       = cms.double(1000),
-    		fatJetTau2ByTau1Max = cms.double(1.1),
-    		dRSubjetsMin        = cms.double(-1), 
-		dRSubjetsMax        = cms.double(100), 
-    		subjet1CSVDiscMin   = cms.double(0),
-    		subjet2CSVDiscMin   = cms.double(0),
+    		fatJetPtMin         = cms.double(300.),
+		fatJetPrunedMassMin = cms.double(75.),
+    		fatJetMassMin       = cms.double(100.),
+    		fatJetMassMax       = cms.double(150.),
+    		fatJetTau2ByTau1Max = cms.double(0.5),
+    		dRSubjetsMin        = cms.double(0.4), 
+		dRSubjetsMax        = cms.double(0.8), 
+    		subjet1CSVDiscMin   = cms.double(0.244),
+    		subjet2CSVDiscMin   = cms.double(0.244),
+    		subjet1CSVDiscMax   = cms.double(1.1),
+    		subjet2CSVDiscMax   = cms.double(1.1),
 	), 
     HTSelParams         = defaultHTSelectionParameters.clone(),
     EvtSelParams        = defaultEventSelectionParameters.clone(),
@@ -202,10 +206,7 @@ process.BprimebH = cms.EDAnalyzer('BackgroundEstimationABCD',
     SFbShift            = cms.double(options.SFbShift), 
     SFlShift            = cms.double(options.SFlShift),
 
-    #BuildMinTree        = cms.bool(False),
-    BuildMinTree        = cms.bool(True),
     ) 
-
 process.SimpleMemoryCheck = cms.Service("SimpleMemoryCheck",ignoreTotal = cms.untracked.int32(1) )
 process.p = cms.Path(process.BprimebH)
 

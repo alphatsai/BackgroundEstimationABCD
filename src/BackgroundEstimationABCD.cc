@@ -133,8 +133,8 @@ class BackgroundEstimationABCD : public edm::EDAnalyzer{
 		TChain*            chain_;
 
 		GenInfoBranches    GenInfo;
-//		EvtInfoBranches    EvtInfo;
-//		VertexInfoBranches VtxInfo;
+		EvtInfoBranches    EvtInfo;
+		VertexInfoBranches VtxInfo;
 		JetInfoBranches    JetInfo;
 		JetInfoBranches    FatJetInfo;
 		JetInfoBranches    SubJetInfo;
@@ -236,8 +236,8 @@ void BackgroundEstimationABCD::beginJob(){
 		f->Close();
 	}
 
-//	EvtInfo.Register(chain_);
-//	VtxInfo.Register(chain_);
+	EvtInfo.Register(chain_);
+	VtxInfo.Register(chain_);
 	GenInfo.Register(chain_);
 	JetInfo.Register(chain_,"JetInfo");
 	FatJetInfo.Register(chain_,"FatJetInfo");
@@ -246,7 +246,7 @@ void BackgroundEstimationABCD::beginJob(){
 	if(  maxEvents_<0 || maxEvents_>chain_->GetEntries()) maxEvents_ = chain_->GetEntries();
 
 	Evt_num		= fs->make<TH1D>("EvtInfo.Entries",	"", 1,   0, 1); 
-	cutFlow		= fs->make<TH1D>("EvtInfo.CutFlow",	"", 5,   0, 5); 
+	cutFlow		= fs->make<TH1D>("EvtInfo.CutFlow",	"", 7,   0, 7); 
 	Higgs_num	= fs->make<TH1D>("HiggsJetInfo.Num",	"", 10,   0, 10); 
 	Higgs_pt 	= fs->make<TH1D>("HiggsJetInfo.Pt",	"", 1500, 0, 1500);
 	Higgs_tau2Bytau1= fs->make<TH1D>("HiggsJetInfo.Tau2ByTau1",	"", 10, 0, 1);
@@ -275,11 +275,11 @@ void BackgroundEstimationABCD::beginJob(){
 	
 	Evt_num->GetXaxis()->SetBinLabel(1,"Entries");	
 	cutFlow->GetXaxis()->SetBinLabel(1,"All_Evt");	
-//	cutFlow->GetXaxis()->SetBinLabel(2,"Trigger_Sel");	
-//	cutFlow->GetXaxis()->SetBinLabel(3,"Vertex_Sel");	
-	cutFlow->GetXaxis()->SetBinLabel(2,"HiggsJet_Sel");	
-	cutFlow->GetXaxis()->SetBinLabel(3,"BJet_Sel");	
-	cutFlow->GetXaxis()->SetBinLabel(4,"HT");	
+	cutFlow->GetXaxis()->SetBinLabel(2,"Trigger_Sel");	
+	cutFlow->GetXaxis()->SetBinLabel(3,"Vertex_Sel");	
+	cutFlow->GetXaxis()->SetBinLabel(4,"HiggsJet_Sel");	
+	cutFlow->GetXaxis()->SetBinLabel(5,"BJet_Sel");	
+	cutFlow->GetXaxis()->SetBinLabel(6,"HT");	
 
 	return;  
 
@@ -310,20 +310,20 @@ void BackgroundEstimationABCD::analyze(const edm::Event& iEvent, const edm::Even
 		chain_->GetEntry(entry);
 		Evt_num->Fill(0);
 
-/*		double evtwt_old(1.);
+		double evtwt_old(1.);
 		bool passHLT(false); 
-		int nGoodVtxs(0);*/
+		int nGoodVtxs(0);
 		int nAK5(0);
 		double HTAK5(0);	 
 
-/*		isData_  = EvtInfo.McFlag ? 0 : 1; 
+		isData_  = EvtInfo.McFlag ? 0 : 1; 
 		if( !isData_ ) evtwt_old    = EvtInfo.Weight; 
 		if( doPUReweighting_ && !isData_ ) puweight_ = LumiWeights_.weight(EvtInfo.TrueIT[0]); 
 		evtwt_ *= evtwt_old; 
 		evtwt_ *= puweight_; 
 
 		//// Higgs BR reweighting, for b'b'>bHbH sample
-		double br_=1.;
+/*		double br_=1.;
 		if ( !isData_ ) {
 			//int nbprimeBH(0), nbprimeBZ(0), nbprimeTW(0); 
 			for (int igen=0; igen < GenInfo.Size; ++igen) {
@@ -345,27 +345,26 @@ void BackgroundEstimationABCD::analyze(const edm::Event& iEvent, const edm::Even
 				}
 			}
 		}
-		evtwt_ *= br_;
+		evtwt_ *= br_;*/
 
-		cutFlow->Fill(double(0),evtwt_);
+		cutFlow->Fill(0);
 		//// Trigger selection =====================================================================================
 		TriggerSelector trigSel(hltPaths_); 
 		passHLT = trigSel.getTrigDecision(EvtInfo); 
 		if( !passHLT ) continue; 
-		cutFlow->Fill(double(1),evtwt_);
+		cutFlow->Fill(1);
 
 		//// Vertex selection =====================================================================================
 		VertexSelector vtxSel(VtxInfo); 
 		nGoodVtxs = vtxSel.NGoodVtxs(); 
 		if( nGoodVtxs < 1){ edm::LogInfo("NoGoodPrimaryVertex") << " No good primary vertex "; continue; }
-		cutFlow->Fill(double(2),evtwt_);
+		cutFlow->Fill(2);
 
 		//// Recall data no Jet =====================================================================================
 		if( isData_ ){
 			if( JetInfo.Size == 0 ) fout << EvtInfo.RunNo << " " << EvtInfo.LumiNo << " " << EvtInfo.EvtNo << std::endl; 
-		}*/
+		}
 
-		cutFlow->Fill(0);
 		////  Higgs jets selection ================================================================================ 
 		vector<TLorentzVector> higgsJets;
 		for ( int i=0; i< FatJetInfo.Size; ++i ){
@@ -391,7 +390,7 @@ void BackgroundEstimationABCD::analyze(const edm::Event& iEvent, const edm::Even
 			Higgs_mass->Fill(FatJetInfo.Mass[i]);
 			Higgs_Prunedmass->Fill(FatJetInfo.MassPruned[i]);
 
-/*				cout<<"[Alpha] CA8 Evt: "<<entry<<" ==================="<<endl;
+				cout<<"[Alpha] CA8 Evt: "<<entry<<" ==================="<<endl;
 				cout<<"[Alpha] pt "<<FatJetInfo.Pt[i]<<endl; 
 				cout<<"[Alpha] mass "<<FatJetInfo.Mass[i]<<endl; 
 				cout<<"[Alpha] Pruned mass "<<FatJetInfo.MassPruned[i]<<endl; 
@@ -399,13 +398,13 @@ void BackgroundEstimationABCD::analyze(const edm::Event& iEvent, const edm::Even
 				cout<<"[Alpha] tau2/tau1 "<<FatJetInfo.tau2[i]/FatJetInfo.tau1[i]<<endl; 
 				cout<<"[Alpha] dyhi "<<subjet_dyphi<<endl; 
 				cout<<"[Alpha] CSV1 "<<SubJetInfo.CombinedSVBJetTags[iSub1]<<endl; 
-				cout<<"[Alpha] CSV2 "<<SubJetInfo.CombinedSVBJetTags[iSub2]<<endl; */
+				cout<<"[Alpha] CSV2 "<<SubJetInfo.CombinedSVBJetTags[iSub2]<<endl; 
 
 		}
 		Higgs_num->Fill(higgsJets.size());
 
 		if( higgsJets.size()<1 ) continue;
-		cutFlow->Fill(1);
+		cutFlow->Fill(3);
 
 		//// AK5 and bJet selection ================================================================================
 		//// Preselection for AK5 Jet 
@@ -445,10 +444,10 @@ void BackgroundEstimationABCD::analyze(const edm::Event& iEvent, const edm::Even
 		AK5_num->Fill(AK5Jets.size());
 
 		if( bJets.size()<2 ) continue;
-		cutFlow->Fill(2);
+		cutFlow->Fill(4);
 		
 		if( HTAK5 < 900 ) continue;	
-		cutFlow->Fill(3);
+		cutFlow->Fill(5);
 			
 		//// Store new tree, new branch with Jet correction  ====================================================================================================
 	} //// entry loop 

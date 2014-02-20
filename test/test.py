@@ -4,13 +4,36 @@ from FWCore.ParameterSet.VarParsing import VarParsing
 
 #from BackgroundEstimationABCDv1.BackgroundEstimationABCD.BpBpToBHBHinc.BprimeBprimeTobHbHinc_M_800_cfi import * 
 #from BackgroundEstimationABCDv1.BackgroundEstimationABCD.Data.JetHT_Run2012BCD_cfi import * 
-from inputFiles_cfi import * 
-#from inputFiles_0_cfi import * 
+#from inputFiles_cfi import * 
+#from inputFiles_0_cfi import *
 
-FileNames = [
-	#'file:/raid1/w/jtsai/bpTobH/skim_Nominal/SAMPLENAME.root'
-	'file:/raid1/w/jtsai/bpTobH/NoSF/skim/SAMPLENAME.root'
+FileNamesTTbar = [
+    'root://eoscms//eos/cms/store/user/devdatta/NtuplesBprimeTobH_v1/TTJets_HadronicMGDecays_8TeV-madgraph/BprimeTobH_v1_1000_1_I7S.root', 
+    'root://eoscms//eos/cms/store/user/devdatta/NtuplesBprimeTobH_v1/TTJets_HadronicMGDecays_8TeV-madgraph/BprimeTobH_v1_1001_1_rUs.root', 
+    'root://eoscms//eos/cms/store/user/devdatta/NtuplesBprimeTobH_v1/TTJets_HadronicMGDecays_8TeV-madgraph/BprimeTobH_v1_1002_1_jjh.root', 
+    'root://eoscms//eos/cms/store/user/devdatta/NtuplesBprimeTobH_v1/TTJets_HadronicMGDecays_8TeV-madgraph/BprimeTobH_v1_1003_1_u50.root', 
+    'root://eoscms//eos/cms/store/user/devdatta/NtuplesBprimeTobH_v1/TTJets_HadronicMGDecays_8TeV-madgraph/BprimeTobH_v1_1004_1_r2G.root', 
+    'root://eoscms//eos/cms/store/user/devdatta/NtuplesBprimeTobH_v1/TTJets_HadronicMGDecays_8TeV-madgraph/BprimeTobH_v1_1005_1_eqN.root', 
+    'root://eoscms//eos/cms/store/user/devdatta/NtuplesBprimeTobH_v1/TTJets_HadronicMGDecays_8TeV-madgraph/BprimeTobH_v1_1006_1_nxz.root', 
+    'root://eoscms//eos/cms/store/user/devdatta/NtuplesBprimeTobH_v1/TTJets_HadronicMGDecays_8TeV-madgraph/BprimeTobH_v1_1007_1_yc3.root', 
+    'root://eoscms//eos/cms/store/user/devdatta/NtuplesBprimeTobH_v1/TTJets_HadronicMGDecays_8TeV-madgraph/BprimeTobH_v1_1008_1_XqJ.root', 
+    'root://eoscms//eos/cms/store/user/devdatta/NtuplesBprimeTobH_v1/TTJets_HadronicMGDecays_8TeV-madgraph/BprimeTobH_v1_1009_1_k0o.root', 
+    'root://eoscms//eos/cms/store/user/devdatta/NtuplesBprimeTobH_v1/TTJets_HadronicMGDecays_8TeV-madgraph/BprimeTobH_v1_100_1_7e6.root', 
+    'root://eoscms//eos/cms/store/user/devdatta/NtuplesBprimeTobH_v1/TTJets_HadronicMGDecays_8TeV-madgraph/BprimeTobH_v1_1010_1_F9S.root', 
+    'root://eoscms//eos/cms/store/user/devdatta/NtuplesBprimeTobH_v1/TTJets_HadronicMGDecays_8TeV-madgraph/BprimeTobH_v1_1011_1_qhn.root', 
+    'root://eoscms//eos/cms/store/user/devdatta/NtuplesBprimeTobH_v1/TTJets_HadronicMGDecays_8TeV-madgraph/BprimeTobH_v1_1012_1_DVX.root', 
+    'root://eoscms//eos/cms/store/user/devdatta/NtuplesBprimeTobH_v1/TTJets_HadronicMGDecays_8TeV-madgraph/BprimeTobH_v1_1013_1_Izr.root', 
+    'root://eoscms//eos/cms/store/user/devdatta/NtuplesBprimeTobH_v1/TTJets_HadronicMGDecays_8TeV-madgraph/BprimeTobH_v1_1014_1_bA4.root', 
+    'root://eoscms//eos/cms/store/user/devdatta/NtuplesBprimeTobH_v1/TTJets_HadronicMGDecays_8TeV-madgraph/BprimeTobH_v1_1015_1_Pqx.root', 
+    'root://eoscms//eos/cms/store/user/devdatta/NtuplesBprimeTobH_v1/TTJets_HadronicMGDecays_8TeV-madgraph/BprimeTobH_v1_1016_1_jO8.root', 
+    'root://eoscms//eos/cms/store/user/devdatta/NtuplesBprimeTobH_v1/TTJets_HadronicMGDecays_8TeV-madgraph/BprimeTobH_v1_1017_1_IDO.root', 
+    'root://eoscms//eos/cms/store/user/devdatta/NtuplesBprimeTobH_v1/TTJets_HadronicMGDecays_8TeV-madgraph/BprimeTobH_v1_1018_1_E32.root', 
+    'root://eoscms//eos/cms/store/user/devdatta/NtuplesBprimeTobH_v1/TTJets_HadronicMGDecays_8TeV-madgraph/BprimeTobH_v1_1019_1_HXj.root',
 ]
+#FileNames = [
+	#'file:/raid1/w/jtsai/bpTobH/skim_Nominal/SAMPLENAME.root'
+	#'file:/raid1/w/jtsai/bpTobH/NoSF/skim/SAMPLENAME.root'
+#]
 #FileNames = [
 ##'file:BprimeTobH_v1_10_1_HIn.root'
 #'file:/afs/cern.ch/user/j/jtsai/eos/cms/store/user/devdatta/NtuplesBprimeTobH_v1/BprimeBprimeToBHBHinc_M-700_TuneZ2star_8TeV-madgraph/BprimeTobH_v1_10_1_HIn.root',
@@ -189,8 +212,9 @@ from BpbH.BprimeTobHAnalysis.JMEUncertUntilParameters_cfi import *
 process.BprimebH = cms.EDAnalyzer('BackgroundEstimationABCD',
     MaxEvents           = cms.int32(options.maxEvents),
     ReportEvery         = cms.int32(options.reportEvery),  
-    InputTTree          = cms.string('BprimebH/tree'),
-    InputFiles          = cms.vstring(FileNames), 
+    InputTTree          = cms.string('ntuple/tree'),
+    #InputFiles          = cms.vstring(FileNames), 
+    InputFiles          = cms.vstring(FileNamesTTbar), 
     HLTPaths            = defaultTriggerSelectionParameters.clone(), 
     DoPUReweighting     = cms.bool(options.doPUReweighting),
     File_PUDistMC       = cms.string('pileup_Data_Summer12_53X_S10.root'),
