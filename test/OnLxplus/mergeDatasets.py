@@ -108,7 +108,8 @@ def main():
 
       # open input ROOT file
       root_file = TFile(input_root_file)
-      htemp = root_file.Get(os.path.join(options.analyzer_module,'EvtInfo.Entries'))
+      htemp = root_file.Get(os.path.join(options.analyzer_module,'ABCDana_CutFlow'))
+#      htemp = root_file.Get(os.path.join(options.analyzer_module,'EvtInfo.Entries'))
 #      htemp = root_file.Get(os.path.join(options.analyzer_module,'h_cutflow'))
       nEventsAll = htemp.GetBinContent(1)
       nEventsStored = htemp.GetBinContent(1)

@@ -408,7 +408,7 @@ void BackgroundEstimationABCD::analyze(const edm::Event& iEvent, const edm::Even
 	
 	//// Roop events ==================================================================================================	
 	for(int entry=0; entry<maxEvents_; entry++){
-		//if( (entry%reportEvery_) == 0) edm::LogInfo("Event") << entry << " of " << maxEvents_;
+		if( (entry%reportEvery_) == 0) edm::LogInfo("Event") << entry << " of " << maxEvents_;
 		chain_->GetEntry(entry);
 
 		bool passHLT(false); 
@@ -453,8 +453,8 @@ void BackgroundEstimationABCD::analyze(const edm::Event& iEvent, const edm::Even
 		double w2_ = weight_*weight_;
 		//weight_=1;	
 
-		h1.GetTH1("ABCDana_CutFlow")->Fill(double(0),weight_);	
-		h1.GetTH1("ABCDval_CutFlow")->Fill(double(0),weight_);
+		h1.GetTH1("ABCDana_CutFlow")->Fill(0);	
+		h1.GetTH1("ABCDval_CutFlow")->Fill(0);
 	
 		//// Trigger selection =====================================================================================
 		TriggerSelector trigSel(hltPaths_); 
@@ -623,6 +623,7 @@ void BackgroundEstimationABCD::analyze(const edm::Event& iEvent, const edm::Even
 					h1.GetTH1("ABCDana_Sub1CSV_B")->Fill( SubJetInfo.CombinedSVBJetTags[iSub1], weight_);
 					h1.GetTH1("ABCDana_Sub2CSV_B")->Fill( SubJetInfo.CombinedSVBJetTags[iSub2], weight_);
 					h2.GetTH2("ABCDana_2D")->Fill( 1., H->MassPruned(), weight_);
+					/*cout<<"================================="<<endl;
 					cout<<"[Alpha] PrunedMass "<<H->MassPruned()<<endl;
 					cout<<"[Alpha] Pt "<<H->Pt()<<endl;
 					cout<<"[Alpha] dRSubJets "<<subjet_dyphi<<endl;
@@ -632,7 +633,7 @@ void BackgroundEstimationABCD::analyze(const edm::Event& iEvent, const edm::Even
 					cout<<"[Alpha] Sub1Pt "<<SubJetInfo.Pt[iSub1]<<endl;
 					cout<<"[Alpha] Sub2Pt "<<SubJetInfo.Pt[iSub2]<<endl;
 					cout<<"[Alpha] Sub1CSV "<<SubJetInfo.CombinedSVBJetTags[iSub1]<<endl;
-					cout<<"[Alpha] Sub2CSV "<<SubJetInfo.CombinedSVBJetTags[iSub2]<<endl;
+					cout<<"[Alpha] Sub2CSV "<<SubJetInfo.CombinedSVBJetTags[iSub2]<<endl;*/
 				}
 				if ( bJetsNotAllHiggsAllAntiHiggs_Veto.size() == 0 ){ //b-Veto
 					Bv++; 
@@ -991,6 +992,7 @@ void BackgroundEstimationABCD::analyze(const edm::Event& iEvent, const edm::Even
 
 // ------------ method called once each job just after ending the event loop  ------------
 void BackgroundEstimationABCD::endJob(){
+	std::cout<<std::endl;	
 	std::cout<<"evtPass_ana "<<evtPass_ana<<"/"<<maxEvents_<<std::endl;	
 	std::cout<<"evtPass_val "<<evtPass_val<<"/"<<maxEvents_<<std::endl;	
 }
