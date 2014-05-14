@@ -20,6 +20,8 @@ void CountABCD(){
 	
 	vector<string> hName;
 	hName.push_back("ABCDana_CutRegion");
+	hName.push_back("ABCDana_CutRegion_1b");
+	hName.push_back("ABCDana_CutRegion_2b");
 
 	vector<string> Title, fullName; 
 	Title.push_back("BHBH450"); 	fullName.push_back("BprimeBprimeToBHBHinc_M-450");
@@ -41,7 +43,9 @@ void CountABCD(){
 	fstream output[workspaceSize][hSize];
 
 	for( int i=0; i<workspaceSize; i++ ){
+		cout<<"[Workspace] "<<workspace[i]<<endl;
 		for( int j=0; j<hSize; j++ ){
+			cout<<hName[j]<<"..."<<endl;
 			string save = savepath + workspace[i]+"_"+hName[j]+".txt";	
 			output[i][j].open(save.c_str(),ios_base::out);
 			for( int k=0; k<titleSize; k++){
