@@ -28,6 +28,8 @@ void CountSystABCD(){
 	
 	vector<string> hName;
 	hName.push_back("ABCDana_CutRegion");
+	hName.push_back("ABCDana_CutRegion_1b");
+	hName.push_back("ABCDana_CutRegion_2b");
 
 	vector<string> Title, fullName; 
 	Title.push_back("BHBH450"); 	fullName.push_back("BprimeBprimeToBHBHinc_M-450");
